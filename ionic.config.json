@@ -1,0 +1,7 @@
+{
+  "name": "usuarioimagen",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
