@@ -1,0 +1,16 @@
+<ion-list>
+  <ion-item
+    button
+    *ngFor="let usuario of usuarios"
+    (click)="seleccionarUsuario(usuario)"
+  >
+    <ion-label>
+      <h2>{{ usuario.name }}</h2>
+      <p>{{ usuario.username }}</p>
+      <p>{{ usuario.email }}</p>
+      <p>{{ usuario.phone }}</p>
+      
+
+    </ion-label>
+  </ion-item>
+</ion-list>
