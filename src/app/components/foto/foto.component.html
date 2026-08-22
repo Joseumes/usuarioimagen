@@ -1,3 +1,20 @@
-<p>
-  foto works!
-</p>
+<div class="ion-text-center ion-padding" *ngIf="foto">
+  <img
+    [src]="imagenUrl"
+    [alt]="foto.title"
+    style="max-width: 100%; border-radius: 12px;"
+    (error)="onImageError($event)"
+  />
+
+  <h3>{{ foto.title }}</h3>
+  <p>Imagen {{ indice + 1 }} / {{ total }}</p>
+
+  <div class="ion-margin-top">
+    <ion-button (click)="irAnterior()">Anterior</ion-button>
+    <ion-button color="medium" (click)="irSiguiente()">Siguiente</ion-button>
+  </div>
+
+  <div class="ion-margin-top">
+    <ion-button fill="clear" (click)="regresar()">Regresar</ion-button>
+  </div>
+</div>

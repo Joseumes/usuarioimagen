@@ -1,3 +1,20 @@
-<p>
-  album works!
-</p>
+<div *ngIf="cargando()" class="ion-text-center ion-padding">
+  Cargando imágenes...
+</div>
+
+<div *ngIf="error()" class="ion-text-center ion-padding">
+  <p>{{ error() }}</p>
+  <ion-button (click)="reintentar()">Reintentar</ion-button>
+  <ion-button color="medium" (click)="volver()">Regresar</ion-button>
+</div>
+
+<app-foto
+  *ngIf="!cargando() && !error() && fotoActual()"
+  [foto]="fotoActual()"
+  [indice]="indiceActual()"
+  [total]="fotos().length"
+  (anterior)="anterior()"
+  (siguiente)="siguiente()"
+  (volver)="volver()"
+>
+</app-foto>

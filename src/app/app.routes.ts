@@ -11,7 +11,7 @@ export const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'album',
-    loadComponent: () => import('./album/album.page').then( m => m.AlbumPage)
+    path: 'album/:id',
+    loadComponent: () => import('./album/album.page').then((m) => m.AlbumPage),
   },
 ];

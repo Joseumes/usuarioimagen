@@ -1,19 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular';
+import { Component, OnInit, signal } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { IonHeader, IonTitle, IonToolbar } from '@ionic/angular';
+import { AlbumComponent } from '../components/album/album.component';
 
 @Component({
-  selector: 'app-album',
+  selector: 'app-album-page',
   templateUrl: './album.page.html',
   styleUrls: ['./album.page.scss'],
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  standalone: true,
+  imports: [IonHeader, IonTitle, IonToolbar, AlbumComponent],
 })
 export class AlbumPage implements OnInit {
+  albumId = signal<number | null>(null);
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.albumId.set(id || null);
   }
-
 }
